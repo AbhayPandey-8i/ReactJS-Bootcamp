@@ -16,7 +16,7 @@ function App() {
     if (counter == 0) {
       counter = 0;
     } else {
-      setCounter(counter - 1)
+      setCounter(counter - 1);
     }
   }
 
