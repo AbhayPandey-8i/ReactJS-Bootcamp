@@ -6,6 +6,8 @@ function App() {
   const [numberAllowed, setNumberAllowed] = useState(false)
   const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
+  const [savePassword, setSavePassword] = useState([])
+  
 
   //useRefHook
   const passwordRef = useRef(null);
@@ -43,15 +45,20 @@ function App() {
   const clearInput = () => {
     setLength("")
   }
-  
-  
-  
+
+  const savePass = () => {
+    setSavePassword(password);
+  }
+
+
+
+
 
   //useEffect
   useEffect(() => {
-     passwordGenerator()
+    passwordGenerator()
   }, [length, numberAllowed, charAllowed, passwordGenerator])
-  
+
 
 
   return (
@@ -67,6 +74,7 @@ function App() {
             readOnly
             ref={passwordRef}
           />
+
           <button onClick={copyPasswordToClipboard} className='outline-none hover:bg-blue-500 bg-blue-700 text-white px-3 py-0.5 shrink-0 font-medium' >
             Copy
           </button>
@@ -91,11 +99,23 @@ function App() {
             <input type="checkbox" defaultChecked={charAllowed} id="numberInput" onChange={() => { setCharAllowed((prev) => !prev) }} />
             <label htmlFor='charInput'>Characters</label>
           </div>
-          <div className='gap-2 flex' > 
+          <div className='gap-2 flex' >
             <button onClick={clearInput} className='bg-black py-1 px-2 rounded-lg hover:bg-gray-800 text-white' >Clear Input</button>
+            <button onClick={savePass} className='bg-black py-1 px-2 rounded-lg hover:bg-gray-800 text-white' >Save</button>
           </div>
         </div>
+         <div  >
+        <input
+          type="text"
+          value={savePassword}
+          className='outline-none w-full mt-2 rounded-lg text-sm font-medium bg-white text-black py-2 px-3'
+          placeholder='Saved Passswords'
+          readOnly
+        // ref={passwordRef}
+        />
       </div>
+      </div>
+     
 
 
     </>
