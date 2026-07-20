@@ -11,7 +11,7 @@ export const todoSlice = createSlice({
         addTodo:(state, action) => { 
             const todo = {
                 id: nanoid(),
-                text: action.payload.text
+                text: action.payload
             }
             state.todos.push(todo)
         },
@@ -19,7 +19,7 @@ export const todoSlice = createSlice({
             
                state.todos = state.todos.filter((todo) => todo.id !== action.payload)
             
-            state.todos.push(todo)
+            
         }
     }
 })
