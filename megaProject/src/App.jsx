@@ -10,6 +10,9 @@ function App() {
   return (
     <>
       <h1>Mega Project</h1>
+      <div>
+        <img src="" alt="" />
+      </div>
     </>
   )
 }
